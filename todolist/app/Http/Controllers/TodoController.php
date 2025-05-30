@@ -11,7 +11,9 @@ class TodoController extends Controller
         return view('Add');
     }
     public function ShowTasksView(){
-        return view('Tasks');
+        $tasks = Tasks::all();
+        return view('Tasks',compact('tasks'));
+        
     }
     public function StoreTask(Request $request , TaskFormRequest $reqvalidation){
         $data= $request->post();
@@ -25,7 +27,7 @@ class TodoController extends Controller
             Tasks::create( $datainsert);
             return to_route('Showtasks')->with('success','Task Added Successfully');
         }
-        
-
+    }
+    public function GetTasks(){
     }
 }
