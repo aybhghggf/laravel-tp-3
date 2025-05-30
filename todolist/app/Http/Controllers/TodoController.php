@@ -12,4 +12,8 @@ class TodoController extends Controller
     public function ShowTasksView(){
         return view('Tasks');
     }
+    public function StoreTask(Request $request){
+        $data= $request->post();
+        dd( $data);
+    }
 }
