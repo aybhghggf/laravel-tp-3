@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Tasks;
 use App\Http\Requests\TaskFormRequest;
 use Illuminate\Http\Request;
 
@@ -17,9 +17,15 @@ class TodoController extends Controller
         $data= $request->post();
         $validation = $reqvalidation->validated();
         if($validation){
-            dd( $validation);
+            $datainsert= [
+                'title' =>$data['title'],
+                'description' =>$data[ 'description'],
+                'Date_Max'=> $data['due_date'],
+            ];
+            Tasks::create( $datainsert);
+            return to_route('Showtasks')->with('success','Task Added Successfully');
         }
-        //validation
+        
 
     }
 }
