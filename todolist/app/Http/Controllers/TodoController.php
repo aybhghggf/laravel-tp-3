@@ -28,6 +28,8 @@ class TodoController extends Controller
             return to_route('Showtasks')->with('success','Task Added Successfully');
         }
     }
-    public function GetTasks(){
-    }
+     public function ShowUpdatePage($id){
+        $task = Tasks::find($id);
+        return view('Update',compact('task'));
+     }
 }

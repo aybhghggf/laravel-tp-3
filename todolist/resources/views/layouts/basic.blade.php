@@ -22,6 +22,7 @@
     <main class="flex-1 p-8">
         @yield('AddTasks')
         @yield( 'Tasks')
+        @yield('Update')
     </main>
 </body>
 </html>

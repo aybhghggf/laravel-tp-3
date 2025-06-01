@@ -20,11 +20,11 @@
                 <p class="text-gray-600">{{ $task->description }}</p>
             </div>
             <div class="flex space-x-2">
-                <a href="/tasks/{{ $task->id }}/edit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Edit</a>
-                <form action="/tasks/{{ $task->id }}" method="POST" class="inline">
+                <a href="{{ route('update',$task->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Edit</a>
+                <form action="" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
-                    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Done</button>
                 </form>
             </div>
         </div>
