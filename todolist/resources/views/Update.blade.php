@@ -1,8 +1,11 @@
 @extends('layouts.basic')
 @section('Update')
+@section('title') Update Task @endsection
 
 <section class="max-w-2xl mx-auto p-6">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('store.update',$task->id) }}" method="POST">
+            @method('PUT')
+        @csrf
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
                 Task Title
@@ -40,7 +43,7 @@
 
         <div class="flex items-center justify-end">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-                    type="submit">
+                    type="submit" value="put">
                 Update Task
             </button>
         </div>

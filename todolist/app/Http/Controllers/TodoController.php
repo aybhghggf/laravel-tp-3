@@ -32,4 +32,14 @@ class TodoController extends Controller
         $task = Tasks::find($id);
         return view('Update',compact('task'));
      }
+     public function StoreUpdate(Request $reqq,$id){
+            $stmt= $reqq->post();
+            $data=[
+                'title'=> $stmt['title'],
+                'description'=>$stmt['description'],
+                'Date_Max'=> $stmt['end_date'],
+            ];
+            Tasks::where('id',$id)->update($data);
+            return to_route('Showtasks')->with('success','Task Updated Successfully');
+     }
 }

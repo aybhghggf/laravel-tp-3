@@ -1,4 +1,5 @@
 @extends('layouts.basic')
+@section('title') Add Task @endsection
 @section('AddTasks')
 @if ($errors->any())
     <div class="fixed top-4 right-4 z-50">
