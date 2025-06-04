@@ -12,3 +12,5 @@ Route::post('/store',[ TodoController::class,'StoreTask'])->name('store');
 Route::get( '/update/{id}',[ TodoController::class,'ShowUpdatePage'])->name('update');
 
 Route::put('/storeupdate/{id}', [TodoController::class, 'StoreUpdate'])->name('store.update');
+
+Route::delete('/Delete/{id}',[TodoController::class, 'DeleteTask'])->name('Delete');

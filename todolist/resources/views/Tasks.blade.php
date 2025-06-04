@@ -1,4 +1,6 @@
 @extends('layouts.basic')
+@section('title') All Task @endsection
+
 @section('Tasks')
 @if(session('success'))
     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -21,7 +23,7 @@
             </div>
             <div class="flex space-x-2">
                 <a href="{{ route('update',$task->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Edit</a>
-                <form action="" method="POST" class="inline">
+                <form action="{{ route('Delete',$task->id) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Done</button>
